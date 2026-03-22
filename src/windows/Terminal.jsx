@@ -91,7 +91,8 @@ const fileSystem = {
         },
         "who-cares.txt": {
           type: "file",
-          content: "I'm looking for a SDE internship. I'm open to collaboration on full stack projects.",
+          content: `I'm looking for a SDE internship. 
+I'm open to collaboration on full stack projects.`,
         },
           "contact.txt": {
               type: "file",

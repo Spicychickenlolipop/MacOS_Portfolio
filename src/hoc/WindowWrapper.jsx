@@ -110,16 +110,24 @@ const WindowWrapper = (Component, windowKey) => {
     }, [isMaximized]);
 
     // ✅ STEP 5 → Dynamic styles
+    // const windowClasses = isMaximized
+    //   ? "fixed top-0 left-0 w-screen h-screen"
+    // //   : "absolute w-[600px] h-[400px]";
+    //     : "absolute w-fit h-fit";
     const windowClasses = isMaximized
-      ? "fixed top-0 left-0 w-screen h-screen"
-      : "absolute w-[600px] h-[400px]";
+  ? "fixed top-0 left-0 w-screen h-screen"
+  : windowKey === "terminal"
+  ? "absolute w-[600px] h-[400px]" // ✅ terminal fixed size
+  : "absolute w-fit h-fit";        // ✅ others auto size
+    
 
     return (
       <section
         id={windowKey}
         ref={ref}
         style={{ zIndex }}
-        className={`${windowClasses} bg-[#0d1117] text-green-400 rounded-xl shadow-xl border border-gray-700`}
+        className={`${windowClasses} bg-white text-black-400 rounded-xl shadow-xl border border-gray-100`}
+        // className="absolute"
       >
         <Component {...props} />
       </section>
